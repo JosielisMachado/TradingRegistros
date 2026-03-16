@@ -1,16 +1,18 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import AyudaModal from './AyudaModal'
+import { useAuth } from '../context/AuthContext'
 
 export default function Navbar() {
   const { pathname } = useLocation()
+  const { user, cerrarSesion } = useAuth()
   const [ayuda, setAyuda] = useState(false)
   const [menuAbierto, setMenuAbierto] = useState(false)
 
   const links = [
-    { to: '/',         label: 'Bitacora',         icon: '📋' },
-    { to: '/nueva',    label: 'Nueva Operacion',  icon: '➕' },
-    { to: '/analisis', label: 'Analisis',          icon: '📊' },
+    { to: '/',         label: 'Bitacora',        icon: '📋' },
+    { to: '/nueva',    label: 'Nueva Operacion', icon: '➕' },
+    { to: '/analisis', label: 'Analisis',         icon: '📊' },
   ]
 
   return (
@@ -23,7 +25,7 @@ export default function Navbar() {
             📈 Trading Registros
           </span>
 
-          {/* Desktop links */}
+          {/* Desktop */}
           <div className="hidden md:flex items-center gap-2">
             {links.map(({ to, label }) => (
               <Link key={to} to={to}
@@ -35,12 +37,21 @@ export default function Navbar() {
               </Link>
             ))}
             <button onClick={() => setAyuda(true)}
-              className="ml-2 w-8 h-8 rounded-full border border-gray-700 text-gray-400 hover:text-white hover:border-green-500 transition-colors text-sm font-bold flex items-center justify-center">
+              className="ml-1 w-8 h-8 rounded-full border border-gray-700 text-gray-400 hover:text-white hover:border-green-500 transition-colors text-sm font-bold flex items-center justify-center">
               ?
             </button>
+            {user && (
+              <div className="ml-2 flex items-center gap-2 border-l border-gray-800 pl-3">
+                <span className="text-xs text-gray-500 max-w-32 truncate">{user.email}</span>
+                <button onClick={cerrarSesion}
+                  className="px-3 py-1.5 text-xs text-gray-400 hover:text-white border border-gray-700 rounded-lg hover:bg-gray-800 transition-colors">
+                  Salir
+                </button>
+              </div>
+            )}
           </div>
 
-          {/* Mobile: ayuda + hamburguesa */}
+          {/* Mobile */}
           <div className="flex items-center gap-2 md:hidden">
             <button onClick={() => setAyuda(true)}
               className="w-8 h-8 rounded-full border border-gray-700 text-gray-400 text-sm font-bold flex items-center justify-center">
@@ -59,16 +70,23 @@ export default function Navbar() {
         {menuAbierto && (
           <div className="md:hidden mt-3 border-t border-gray-800 pt-3 flex flex-col gap-1">
             {links.map(({ to, label, icon }) => (
-              <Link key={to} to={to}
-                onClick={() => setMenuAbierto(false)}
+              <Link key={to} to={to} onClick={() => setMenuAbierto(false)}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors
                   ${pathname === to
                     ? 'bg-green-500 text-gray-950'
                     : 'text-gray-400 hover:text-white hover:bg-gray-800'}`}>
-                <span>{icon}</span>
-                {label}
+                <span>{icon}</span>{label}
               </Link>
             ))}
+            {user && (
+              <div className="border-t border-gray-800 mt-2 pt-2 px-4 flex items-center justify-between">
+                <span className="text-xs text-gray-500 truncate max-w-48">{user.email}</span>
+                <button onClick={() => { cerrarSesion(); setMenuAbierto(false) }}
+                  className="text-xs text-red-400 hover:text-red-300 border border-red-900/50 rounded-lg px-3 py-1.5 hover:bg-red-900/20 transition-colors">
+                  Salir
+                </button>
+              </div>
+            )}
           </div>
         )}
       </nav>
