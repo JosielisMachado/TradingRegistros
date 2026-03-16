@@ -122,7 +122,7 @@ export default function AyudaModal({ onClose }) {
 
           {/* Contacto */}
           <section className="border-t border-gray-800 pt-5">
-            <p className="text-xs text-gray-500 uppercase tracking-wider mb-3 font-semibold">Desarrolladora</p>
+            <p className="text-xs text-gray-500 uppercase tracking-wider mb-3 font-semibold">Programador: Cubano en Uruguay</p>
             <div className="flex items-center justify-between flex-wrap gap-3">
               <div>
                 <p className="text-gray-300 text-sm font-medium">Josielis Machado</p>
