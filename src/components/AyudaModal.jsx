@@ -8,7 +8,7 @@ export default function AyudaModal({ onClose }) {
       <div className="relative bg-gray-900 border border-gray-700 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl">
 
         {/* Header */}
-        <div className="sticky top-0 bg-gray-900 border-b border-gray-800 px-6 py-4 flex items-center justify-between rounded-t-2xl">
+        <div className="sticky top-0 bg-gray-900 border-b border-gray-800 px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
           <div className="flex items-center gap-3">
             <span className="text-2xl">📈</span>
             <div>
@@ -27,30 +27,44 @@ export default function AyudaModal({ onClose }) {
           {/* Intro */}
           <p className="text-gray-300 text-sm leading-relaxed">
             Bitacora profesional para registrar, analizar y mejorar tu operativa de trading.
-            Todos tus datos se guardan en la nube y estan disponibles desde cualquier dispositivo.
+            Todos tus datos son privados, se guardan en la nube y estan disponibles desde cualquier dispositivo.
           </p>
 
-          {/* Seccion Bitacora */}
+          {/* Cuenta y seguridad */}
+          <section>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-purple-400 font-bold text-sm uppercase tracking-wider">Cuenta y privacidad</span>
+              <div className="flex-1 h-px bg-gray-800" />
+            </div>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li className="flex gap-2"><span className="text-purple-400 mt-0.5">+</span>Registro con email y contrasena — tus datos son solo tuyos</li>
+              <li className="flex gap-2"><span className="text-purple-400 mt-0.5">+</span>Inicio de sesion desde cualquier dispositivo (PC, tablet, celular)</li>
+              <li className="flex gap-2"><span className="text-purple-400 mt-0.5">+</span>Nadie mas puede ver tus operaciones — cada registro esta vinculado a tu cuenta</li>
+              <li className="flex gap-2"><span className="text-purple-400 mt-0.5">+</span>Cerrar sesion desde el menu de navegacion en cualquier momento</li>
+            </ul>
+          </section>
+
+          {/* Bitacora */}
           <section>
             <div className="flex items-center gap-2 mb-3">
               <span className="text-green-400 font-bold text-sm uppercase tracking-wider">Bitacora</span>
               <div className="flex-1 h-px bg-gray-800" />
             </div>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li className="flex gap-2"><span className="text-green-400 mt-0.5">+</span>Ver todas tus operaciones en una tabla ordenada</li>
-              <li className="flex gap-2"><span className="text-green-400 mt-0.5">+</span>Ordenar por fecha, activo, resultado en $ o %, y tamano de posicion — clic en el encabezado de columna</li>
+              <li className="flex gap-2"><span className="text-green-400 mt-0.5">+</span>Ver todas tus operaciones en tabla (PC) o tarjetas (movil)</li>
+              <li className="flex gap-2"><span className="text-green-400 mt-0.5">+</span>Ordenar por fecha, activo, resultado en $ o %, y tamano de posicion</li>
               <li className="flex gap-2"><span className="text-green-400 mt-0.5">+</span>Filtrar por activo, direccion (compra/venta) y estado (abierta/cerrada)</li>
-              <li className="flex gap-2"><span className="text-green-400 mt-0.5">+</span>Clic en cualquier fila para expandir y ver motivo tecnico, emociones, errores y capturas de pantalla</li>
-              <li className="flex gap-2"><span className="text-green-400 mt-0.5">+</span>Editar cualquier operacion existente con el boton de lapiz</li>
-              <li className="flex gap-2"><span className="text-green-400 mt-0.5">+</span>Eliminar operaciones con el boton X</li>
-              <li className="flex gap-2"><span className="text-green-400 mt-0.5">+</span>Resumen rapido: P&L total, Win Rate y conteo de ganadoras</li>
+              <li className="flex gap-2"><span className="text-green-400 mt-0.5">+</span>Expandir cualquier fila para ver motivo tecnico, emociones, errores y capturas</li>
+              <li className="flex gap-2"><span className="text-green-400 mt-0.5">+</span>Editar cualquier operacion existente</li>
+              <li className="flex gap-2"><span className="text-green-400 mt-0.5">+</span>Eliminar operaciones</li>
+              <li className="flex gap-2"><span className="text-green-400 mt-0.5">+</span>Resumen rapido: total operaciones, P&L, Win Rate y ganadoras</li>
             </ul>
           </section>
 
-          {/* Seccion Nueva Operacion */}
+          {/* Nueva Operacion */}
           <section>
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-blue-400 font-bold text-sm uppercase tracking-wider">Nueva Operacion</span>
+              <span className="text-blue-400 font-bold text-sm uppercase tracking-wider">Registro de operaciones</span>
               <div className="flex-1 h-px bg-gray-800" />
             </div>
             <ul className="space-y-2 text-sm text-gray-300">
@@ -65,7 +79,7 @@ export default function AyudaModal({ onClose }) {
             </ul>
           </section>
 
-          {/* Seccion Analisis */}
+          {/* Analisis */}
           <section>
             <div className="flex items-center gap-2 mb-3">
               <span className="text-yellow-400 font-bold text-sm uppercase tracking-wider">Analisis automatico</span>
@@ -73,38 +87,50 @@ export default function AyudaModal({ onClose }) {
             </div>
             <ul className="space-y-2 text-sm text-gray-300">
               <li className="flex gap-2"><span className="text-yellow-400 mt-0.5">+</span>P&L total, Win Rate, promedio de ganancias y perdidas, factor de ganancia</li>
-              <li className="flex gap-2"><span className="text-yellow-400 mt-0.5">+</span>Evolucion del P&L acumulado en el tiempo (curva de equity)</li>
-              <li className="flex gap-2"><span className="text-yellow-400 mt-0.5">+</span>Que dia de la semana obtienes mas ganancias — ordenable</li>
+              <li className="flex gap-2"><span className="text-yellow-400 mt-0.5">+</span>Curva de equity — evolucion del P&L acumulado en el tiempo</li>
+              <li className="flex gap-2"><span className="text-yellow-400 mt-0.5">+</span>Que dia de la semana obtienes mas ganancias — ordenable mayor a menor</li>
               <li className="flex gap-2"><span className="text-yellow-400 mt-0.5">+</span>Que periodo del dia es mas rentable (madrugada/manana/tarde/noche) — ordenable</li>
-              <li className="flex gap-2"><span className="text-yellow-400 mt-0.5">+</span>Rendimiento por activo con P&L, cantidad de ops y Win Rate — ordenable</li>
+              <li className="flex gap-2"><span className="text-yellow-400 mt-0.5">+</span>Rendimiento por activo con P&L, cantidad de operaciones y Win Rate — ordenable</li>
               <li className="flex gap-2"><span className="text-yellow-400 mt-0.5">+</span>Eficiencia en toma de ganancias: que % del recorrido al TP estas capturando vs lo que podrias haber ganado</li>
-              <li className="flex gap-2"><span className="text-yellow-400 mt-0.5">+</span>Distribucion compras vs ventas</li>
-              <li className="flex gap-2"><span className="text-yellow-400 mt-0.5">+</span>Resumen ejecutivo automatico con tus mejores dias, periodos y activos</li>
+              <li className="flex gap-2"><span className="text-yellow-400 mt-0.5">+</span>Distribucion compras vs ventas en grafico circular</li>
+              <li className="flex gap-2"><span className="text-yellow-400 mt-0.5">+</span>Resumen ejecutivo automatico: mejor dia, mejor periodo y mejor activo</li>
             </ul>
           </section>
 
-          {/* Tips */}
+          {/* Dispositivos */}
+          <section>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-cyan-400 font-bold text-sm uppercase tracking-wider">Acceso multidispositivo</span>
+              <div className="flex-1 h-px bg-gray-800" />
+            </div>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li className="flex gap-2"><span className="text-cyan-400 mt-0.5">+</span>Diseno adaptado a PC, tablet y celular</li>
+              <li className="flex gap-2"><span className="text-cyan-400 mt-0.5">+</span>En movil: menu hamburguesa, tarjetas expandibles y chips de ordenamiento deslizables</li>
+              <li className="flex gap-2"><span className="text-cyan-400 mt-0.5">+</span>Los datos se sincronizan en tiempo real entre dispositivos</li>
+              <li className="flex gap-2"><span className="text-cyan-400 mt-0.5">+</span>Funciona desde cualquier navegador sin instalar nada</li>
+            </ul>
+          </section>
+
+          {/* Tip */}
           <section className="bg-gray-800/50 rounded-xl p-4">
             <p className="text-xs text-gray-500 uppercase tracking-wider mb-2 font-semibold">Consejo</p>
             <p className="text-sm text-gray-300">
-              El analisis se vuelve mas preciso y revelador a medida que registras mas operaciones.
+              El analisis se vuelve mas preciso a medida que registras mas operaciones.
               Con 20+ trades vas a empezar a ver patrones claros en tus habitos de trading.
             </p>
           </section>
 
           {/* Contacto */}
           <section className="border-t border-gray-800 pt-5">
-            <p className="text-xs text-gray-500 uppercase tracking-wider mb-3 font-semibold">Desarrollador</p>
-            <div className="flex items-center justify-between">
+            <p className="text-xs text-gray-500 uppercase tracking-wider mb-3 font-semibold">Desarrolladora</p>
+            <div className="flex items-center justify-between flex-wrap gap-3">
               <div>
-                <p className="text-gray-300 text-sm">Josielis Machado</p>
+                <p className="text-gray-300 text-sm font-medium">Josielis Machado</p>
                 <p className="text-gray-500 text-xs mt-0.5">Consultas, sugerencias o mejoras</p>
               </div>
-              <a
-                href="mailto:josielisuruguay@gmail.com"
+              <a href="mailto:josielisuruguay@gmail.com"
                 className="flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 text-green-400 rounded-lg text-sm hover:bg-green-500/20 transition-colors">
-                <span>@</span>
-                josielisuruguay@gmail.com
+                @ josielisuruguay@gmail.com
               </a>
             </div>
           </section>
