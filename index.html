@@ -1,13 +1,91 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>trading-registros</title>
+    <title>Trading Registros</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        background-color: #030712;
+        font-family: sans-serif;
+      }
+      #splash {
+        position: fixed;
+        inset: 0;
+        background: #030712;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        z-index: 9999;
+        transition: opacity 0.3s ease;
+      }
+      #splash.oculto {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #splash .icono {
+        font-size: 48px;
+      }
+      #splash .titulo {
+        color: #4ade80;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+      }
+      #splash .puntos {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      #splash .punto {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #22c55e;
+        animation: rebote 0.9s infinite ease-in-out;
+      }
+      #splash .punto:nth-child(2) { animation-delay: 0.15s; }
+      #splash .punto:nth-child(3) { animation-delay: 0.30s; }
+      @keyframes rebote {
+        0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+        40%            { transform: scale(1.0); opacity: 1;   }
+      }
+    </style>
   </head>
   <body>
+    <!-- Splash visible antes de que React cargue -->
+    <div id="splash">
+      <div class="icono">📈</div>
+      <div class="titulo">Trading Registros</div>
+      <div class="puntos">
+        <div class="punto"></div>
+        <div class="punto"></div>
+        <div class="punto"></div>
+      </div>
+    </div>
+
     <div id="root"></div>
+
+    <script>
+      // Ocultar splash en cuanto React monte el árbol
+      const observer = new MutationObserver(() => {
+        const root = document.getElementById('root')
+        if (root && root.children.length > 0) {
+          document.getElementById('splash').classList.add('oculto')
+          setTimeout(() => {
+            const splash = document.getElementById('splash')
+            if (splash) splash.remove()
+          }, 400)
+          observer.disconnect()
+        }
+      })
+      observer.observe(document.getElementById('root'), { childList: true, subtree: true })
+    </script>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
