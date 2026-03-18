@@ -90,7 +90,7 @@ export default function NuevaOperacion() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="w-full max-w-5xl mx-auto">
       <h1 className="text-2xl font-bold text-green-400 mb-6">Nueva Operacion</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
 
@@ -148,7 +148,7 @@ export default function NuevaOperacion() {
         {/* BLOQUE 2 */}
         <section className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
           <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Precios y gestion de riesgo</h2>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               { field: 'precio_entrada', label: 'Precio entrada *', required: true  },
               { field: 'precio_salida',  label: 'Precio salida',    required: false },
@@ -218,7 +218,7 @@ export default function NuevaOperacion() {
         {/* BLOQUE 5 */}
         <section className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
           <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Capturas del grafico</h2>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
               { label: 'Antes de la operacion',  setter: setImagenAntes,   val: imagenAntes   },
               { label: 'Despues de la operacion', setter: setImagenDespues, val: imagenDespues },
