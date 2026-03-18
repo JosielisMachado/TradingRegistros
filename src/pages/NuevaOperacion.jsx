@@ -95,7 +95,7 @@ export default function NuevaOperacion() {
       <form onSubmit={handleSubmit} className="space-y-6">
 
         {/* BLOQUE 1 */}
-        <section className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
+        <section className="bg-gray-900 border border-gray-800 rounded-xl p-8 space-y-4">
           <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Datos de la operacion</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -146,7 +146,7 @@ export default function NuevaOperacion() {
         </section>
 
         {/* BLOQUE 2 */}
-        <section className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
+        <section className="bg-gray-900 border border-gray-800 rounded-xl p-8 space-y-4">
           <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Precios y gestion de riesgo</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
@@ -166,7 +166,7 @@ export default function NuevaOperacion() {
         </section>
 
         {/* BLOQUE 3 */}
-        <section className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
+        <section className="bg-gray-900 border border-gray-800 rounded-xl p-8 space-y-4">
           <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Tamano y resultado</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
@@ -191,7 +191,7 @@ export default function NuevaOperacion() {
         </section>
 
         {/* BLOQUE 4 */}
-        <section className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
+        <section className="bg-gray-900 border border-gray-800 rounded-xl p-8 space-y-4">
           <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Analisis personal</h2>
           <div>
             <label className="block text-sm text-gray-400 mb-1">Motivo tecnico de entrada</label>
@@ -216,7 +216,7 @@ export default function NuevaOperacion() {
         </section>
 
         {/* BLOQUE 5 */}
-        <section className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
+        <section className="bg-gray-900 border border-gray-800 rounded-xl p-8 space-y-4">
           <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Capturas del grafico</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
