@@ -33,9 +33,9 @@ function AppInterna() {
   if (loading) return <PantallaCarga />
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
+    <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col items-center">
       {user && <Navbar />}
-      <div className={user ? 'max-w-5xl mx-auto px-6 py-8' : ''}>
+      <main className={user ? 'w-full max-w-5xl px-6 py-8' : ''}>
         <Routes>
           <Route path="/login"      element={user ? <Navigate to="/" replace /> : <Login />} />
           <Route path="/"           element={<RutaProtegida><Bitacora /></RutaProtegida>} />
@@ -44,7 +44,7 @@ function AppInterna() {
           <Route path="/editar/:id" element={<RutaProtegida><EditarOperacion /></RutaProtegida>} />
           <Route path="*"           element={<Navigate to="/" replace />} />
         </Routes>
-      </div>
+      </main>
     </div>
   )
 }
