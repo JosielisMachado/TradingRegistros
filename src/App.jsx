@@ -34,8 +34,8 @@ function AppInterna() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col items-center">
-      {user && <Navbar />}
-      <main className={user ? 'w-full max-w-5xl px-6 py-8' : ''}>
+      {user && <div className="w-full"><Navbar /></div>}
+      <main className={user ? 'w-full max-w-5xl px-4 sm:px-6 py-8' : ''}>
         <Routes>
           <Route path="/login"      element={user ? <Navigate to="/" replace /> : <Login />} />
           <Route path="/"           element={<RutaProtegida><Bitacora /></RutaProtegida>} />
