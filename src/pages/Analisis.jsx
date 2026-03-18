@@ -163,7 +163,7 @@ export default function Analisis() {
   )
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 overflow-x-hidden">
       <h1 className="text-xl md:text-2xl font-bold text-green-400">Analisis automatico</h1>
 
       {/* TARJETAS RESUMEN */}

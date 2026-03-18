@@ -90,7 +90,7 @@ export default function NuevaOperacion() {
   }
 
   return (
-    <div className="w-full max-w-5xl mx-auto">
+    <div className="max-w-3xl mx-auto">
       <h1 className="text-2xl font-bold text-green-400 mb-6">Nueva Operacion</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
 
